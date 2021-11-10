@@ -1,0 +1,14 @@
+/* -------- input css ------- */
+.input-field {
+    text-align: center;
+    width: 500px;
+    margin: 0 auto;
+    border: 1px solid #666;
+    padding: 50px;
+}
+
+.input-field form input {
+    width: 100%;
+    margin: 10px 0;
+    padding: 8px 15px;
+}
