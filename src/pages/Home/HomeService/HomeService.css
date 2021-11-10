@@ -1,0 +1,29 @@
+/* --------- service css --------- */
+.service-area {
+    padding: 100px 0;
+}
+.sevice-content-left {
+    text-align: right;
+    padding-right: 60px;
+}
+.sevice-content-right {
+    padding-left: 60px;
+}
+.sevice-wrapper {
+    margin: 50px 0;
+}
+.sevice-content-left h5, .sevice-content-right h5 {
+    color: #363636;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+.sevice-content-left p, .sevice-content-right p {
+    color: #999999;
+    font-size: 14px;
+}
+.service-icon {
+    font-size: 36px;
+    color: #db2d2e;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,50 @@
+/* --------- about css --------- */
+.about-area {
+    background: url(../../../images/about-1.png) no-repeat no-repeat center;
+    background-size: cover;
+    padding: 100px 0 40px;
+    position: relative;
+    color: #fff;
+    z-index: 1;
+}
+.about-area:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 55%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    content: '';
+    z-index: -1;
+}
+.section-title span {
+    font-size: 17px;
+    font-weight: 400;
+}
+.section-title h2 {
+    font-size: 46px;
+    margin: 10px 0 50px;
+    font-weight: 400;
+}
+p.about-text {
+    font-size: 15px;
+    margin-bottom: 60px;
+}
+.about-counter.mr {
+    margin-right: 130px;
+}
+.about-counter.mr {
+    margin-right: 130px;
+}
+.about-counter h4 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.about-counter {
+    margin-bottom: 55px;
+}
+.about-counter span {
+    font-size: 36px;
+    font-weight: 600;
+}

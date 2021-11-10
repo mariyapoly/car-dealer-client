@@ -1,0 +1,28 @@
+/* --------- header css ----------- */
+nav.navbar {
+    background: #fff;
+    padding: 20px 0;
+}
+.logo {
+    text-decoration: none;
+    font-weight: 700;
+    color: rgb(60, 60, 60);
+    font-size: 32px;
+    font-family: 'Roboto';
+}
+.logo:hover {
+    color: rgb(60, 60, 60);
+}
+a.logo span {
+    color: #db2d2e;
+}
+.navbar-nav a {
+    color: #323232;
+    text-decoration: none;
+    font-family: 'Roboto';
+    font-size: 15px;
+    margin-left: 40px;
+}
+.navbar-nav .selected{
+    color: #db2d2e;
+}
