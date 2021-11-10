@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
-import useAuth from '../../Hooks/UseAuth';
+import useAuth from '../../../hooks/useAuth';
 import './Navigation.css';
 
 
@@ -19,7 +19,11 @@ const Navigation = () => {
                         <NavLink to="/home" activeClassName="selected">Home</NavLink>
                         <NavLink to="/explore" activeClassName="selected">Explore</NavLink>
                         {
-                            user.email ? <button onClick={logOut}>Logout</button> : <NavLink to="/login" activeClassName="selected">Login</NavLink>
+                            user.email ? <>
+                                <NavLink to="/dashBoard" activeClassName="selected">Dashboard</NavLink>
+                                <button onClick={logOut}>Logout</button>
+                            </>
+                                : <NavLink to="/login" activeClassName="selected">Login</NavLink>
                         }
 
                         <NavLink to="/register" activeClassName="selected">Register</NavLink>

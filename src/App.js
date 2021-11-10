@@ -9,7 +9,10 @@ import Home from './pages/Home/Home/Home';
 import Explore from './pages/Explore/Explore/Explore';
 import Login from './pages/Login/Login/Login';
 import Register from './pages/Login/Register/Register';
-import AuthProvider from './pages/Contexts/AuthProvider/AuthProvider';
+import OrderPurches from './pages/OrderPurches/OrderPurches';
+import AuthProvider from './contexts/AuthProvider/AuthProvider';
+import PrivateRoute from './pages/Login/PrivateRoute/PrivateRoute';
+import DashBoard from './pages/DashBoard/DashBoard/DashBoard';
 
 
 function App() {
@@ -32,6 +35,12 @@ function App() {
           <Route path="/register">
             <Register></Register>
           </Route>
+          <PrivateRoute path="/orderPurches/:id">
+            <OrderPurches></OrderPurches>
+          </PrivateRoute>
+          <PrivateRoute path="/dashBoard">
+            <DashBoard></DashBoard>
+          </PrivateRoute>
         </Switch>
       </Router>
     </AuthProvider>

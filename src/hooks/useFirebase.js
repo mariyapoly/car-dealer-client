@@ -1,6 +1,7 @@
-import initializeAuthentication from "../Firebase/firebase.init";
+import initializeAuthentication from "../pages/Firebase/firebase.init";
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, updateProfile, signOut, signInWithEmailAndPassword } from "firebase/auth";
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 
 initializeAuthentication()
@@ -14,18 +15,20 @@ const useFirebase = () => {
     const auth = getAuth();
 
     // register user with email password
-    const rigisterUser = (email, password, name) => {
+    const rigisterUser = (email, password, name, history) => {
         setIsLoading(true)
         createUserWithEmailAndPassword(auth, email, password)
             .then((result) => {
                 const newUser = { email, displayName: name }
                 setUser(newUser)
-
+                // saved user
+                savedUser(email, name)
                 updateProfile(auth.currentUser, {
                     displayName: name,
                 }).then(() => {
                 }).catch((error) => {
                 });
+                history.replace('/')
             })
             .catch((error) => {
                 setError(error.message)
@@ -33,11 +36,12 @@ const useFirebase = () => {
     }
 
     // signIn user with email paaword
-    const signInEmailPassword = (email, password) => {
+    const signInEmailPassword = (email, password, location, history) => {
         setIsLoading(true)
+        const destination = location?.state?.from || '/';
         signInWithEmailAndPassword(auth, email, password)
             .then((result) => {
-                setUser(result.user)
+                history.replace(destination)
             })
             .catch((error) => {
                 setError(error.message)
@@ -46,12 +50,14 @@ const useFirebase = () => {
 
     // observed user state change
     useEffect(() => {
+        setIsLoading(true)
         const unsubscribed = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user)
             } else {
                 setUser({})
             }
+            setIsLoading(false)
         });
         return () => unsubscribed;
     }, [auth])
@@ -64,6 +70,19 @@ const useFirebase = () => {
         });
     }
 
+    // saved user 
+    const savedUser = (email, name) => {
+        axios.post('http://localhost:5000/user', {
+            displayName: name,
+            email: email
+        })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
 
     return {
         rigisterUser,
