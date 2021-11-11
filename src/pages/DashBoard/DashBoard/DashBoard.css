@@ -1,20 +1,36 @@
-.dashboard-area {
-    padding-top: 50px;
-}
+
 .side-navbar {
-    background: #303030;
     height: 100vh;
 }
 .side-navbar {
     padding-left: 30px;
     padding-top: 30px;
+    background-color: #fff;
+    box-shadow: 5px 0px 5px 0px rgba(0,0,0,0.15);
+    -webkit-box-shadow: 5px 0px 5px 0px rgba(0,0,0,0.15);
+    -moz-box-shadow: 5px 0px 5px 0px rgba(0,0,0,0.15);
 }
-
+.side-navbar .logo {
+    font-weight: 700;
+    font-size: 32px;
+    margin: 0;
+    margin-bottom: 60px;
+}
 .side-navbar a {
     display: block;
-    color: #fff;
+    color: #363636;
     text-decoration: none;
     text-transform: capitalize;
     margin: 25px 0;
     font-weight: 500;
+}
+.dashbord-header {
+    background: #db2d2e;
+    padding: 20px 30px;
+}
+.dashbord-header p {
+    color: #fff;
+    text-transform: capitalize;
+    font-size: 30px;
+    font-weight: 600;
 }

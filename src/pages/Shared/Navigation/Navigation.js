@@ -22,6 +22,7 @@ const Navigation = () => {
                             user.email ? <>
                                 <NavLink to="/dashBoard" activeClassName="selected">Dashboard</NavLink>
                                 <button onClick={logOut}>Logout</button>
+                                {user.displayName}
                             </>
                                 : <NavLink to="/login" activeClassName="selected">Login</NavLink>
                         }

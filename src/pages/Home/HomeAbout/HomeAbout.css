@@ -25,6 +25,7 @@
     font-size: 40px;
     margin: 10px 0 50px;
     font-weight: 500;
+    text-transform: uppercase;
 }
 p.about-text {
     font-size: 15px;
