@@ -9,6 +9,11 @@
     text-align: center;
     color: #fff;
 }
+
+.single-products img {
+    height: 195px;
+    width: 100%;
+}
 .product-des {
     text-align: center;
     padding: 30px 20px;
@@ -36,4 +41,7 @@
 p.price {
     font-size: 18px;
     font-weight: 600;
+}
+.single-products button.regular-btn.delete-btn {
+    display: none;
 }

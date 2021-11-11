@@ -5,6 +5,7 @@
     position: relative;
     z-index: 1;
     padding: 110px 0 80px;
+    position: relative;
 }
 .products-bg::before{
     position: absolute;

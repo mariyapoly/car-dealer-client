@@ -1,22 +1,21 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
-import useAuth from '../../../hooks/useAuth';
-import Orderproduct from '../Orderproduct/Orderproduct';
 import Swal from 'sweetalert2';
-import './MyOrders.css'
+import Orderproduct from '../Orderproduct/Orderproduct';
+import './ManageAllOrders.css'
 
-const MyOrders = () => {
+const ManageAllOrders = () => {
 
-    const { user } = useAuth();
-    const [orderProducts, setOrderProducts] = useState([])
+    const [orderProdusts, setOrderProdusts] = useState([])
+    const [isUpdate, setIsUpdate] = useState(false)
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/orders?email=${user.email}`)
+        axios.get('http://localhost:5000/allorders')
             .then(function (response) {
-                setOrderProducts(response.data);
+                setOrderProdusts(response.data);
             })
-    }, [user.email])
+    }, [isUpdate])
 
     const cancelProducts = (id) => {
         axios.delete(`http://localhost:5000/orders/${id}`)
@@ -36,20 +35,36 @@ const MyOrders = () => {
                                 'Your order product has been deleted',
                                 'success'
                             )
-                            const remainingOrders = orderProducts.filter(products => products._id !== id);
-                            setOrderProducts(remainingOrders);
+                            const remainingOrders = orderProdusts.filter(products => products._id !== id);
+                            setOrderProdusts(remainingOrders);
                         }
                     })
                 }
             })
     }
 
+    const approvedProducts = (id) => {
+        axios.put(`http://localhost:5000/orders/${id}`)
+            .then(function (response) {
+                console.log(response.data)
+                if (response?.data?.matchedCount) {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Order Shipped successfully',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    setIsUpdate(true)
+                }
+            })
+    }
 
     return (
-        <div className="orders">
+        <div className="mange-orders">
             <Container>
                 <div className="section-title dashboard">
-                    <h2>My Orders</h2>
+                    <h2>Manage All Orders</h2>
                 </div>
                 <Row>
                     <ul className="orders-list">
@@ -61,17 +76,17 @@ const MyOrders = () => {
                         <li>status</li>
                     </ul>
                     {
-                        orderProducts.map(order => <Orderproduct
+                        orderProdusts.map(order => <Orderproduct
                             key={order._id}
-                            order={order}
                             cancelProducts={cancelProducts}
-                        ></Orderproduct>)
+                            approvedProducts={approvedProducts}
+                            order={order}></Orderproduct>)
                     }
                 </Row>
-
             </Container>
+
         </div>
     );
 };
 
-export default MyOrders;
+export default ManageAllOrders;

@@ -1,0 +1,13 @@
+.make-admin {
+    padding: 60px 0;
+}
+.make-admin form {
+    width: 400px;
+    margin: 0 auto;
+}
+
+.make-admin form input {
+    width: 100%;
+    padding: 8px 15px;
+    margin: 10px 0;
+}

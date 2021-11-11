@@ -25,7 +25,7 @@
     font-weight: 500;
 }
 .dashbord-header {
-    background: #db2d2e;
+    background: #4b4848;
     padding: 20px 30px;
 }
 .dashbord-header p {
@@ -33,4 +33,7 @@
     text-transform: capitalize;
     font-size: 30px;
     font-weight: 600;
+}
+.dashbord-header span {
+    color: #fff;
 }

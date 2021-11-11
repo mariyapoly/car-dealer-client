@@ -1,0 +1,17 @@
+.add-product-area {
+    padding: 60px 0;
+}
+.add-product-area form {
+    width: 500px;
+    margin: auto;
+}
+
+.add-product-area form input, .add-product-area form textarea {
+    width: 100%;
+    padding: 8px 15px;
+    margin: 10px 0;
+}
+.add-product-area form textarea {
+    height: 100px;
+    resize: none;
+}

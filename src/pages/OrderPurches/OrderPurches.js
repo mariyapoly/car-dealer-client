@@ -6,6 +6,7 @@ import Navigation from '../Shared/Navigation/Navigation';
 import { useForm } from "react-hook-form";
 import './OrderPurches.css'
 import useAuth from '../../hooks/useAuth';
+import Swal from 'sweetalert2';
 
 const OrderPurches = () => {
 
@@ -32,8 +33,18 @@ const OrderPurches = () => {
             email: data?.email,
             address: data?.address,
             phone: data?.phone,
+            status: 'pending'
         })
             .then(function (response) {
+                if (response.data.insertedId) {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Car Order Successfully',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
             })
     };
 

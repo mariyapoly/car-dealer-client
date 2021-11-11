@@ -1,0 +1,16 @@
+.mange-orders .update-btn {
+    display: block;
+}
+.section-title.dashboard {
+    text-align: center;
+}
+
+.section-title.dashboard h2 {
+    color: #363636;
+    margin-bottom: 30px;
+    font-size: 30px;
+}
+
+.mange-orders {
+    padding: 60px 0;
+}

@@ -1,0 +1,10 @@
+.manage-products {
+    padding: 60px 0;
+}
+.manage-products .single-products button.regular-btn.delete-btn {
+    display: block;
+    margin: 0 auto;
+}
+.manage-products .single-products button.regular-btn.order-btn{
+    display: none;
+}
