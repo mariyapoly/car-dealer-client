@@ -9,7 +9,7 @@ const CustomerReview = () => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/reviews')
+        axios.get('https://cryptic-dawn-61240.herokuapp.com/reviews')
             .then(function (response) {
                 setReviews(response.data);
             })

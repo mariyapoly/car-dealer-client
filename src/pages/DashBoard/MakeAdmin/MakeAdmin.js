@@ -11,7 +11,7 @@ const MakeAdmin = () => {
     const { user } = useAuth();
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        axios.put(`http://localhost:5000/makeAdmin?email=${user.email}`)
+        axios.put(`https://cryptic-dawn-61240.herokuapp.com/makeAdmin?email=${user.email}`)
             .then(function (response) {
                 console.log(response.data)
                 if (response.data.matchedCount) {

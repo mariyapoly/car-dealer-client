@@ -9,7 +9,7 @@ const HomeProducts = () => {
     const [products, setproducts] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/products')
+        axios.get('https://cryptic-dawn-61240.herokuapp.com/products')
             .then(function (response) {
                 setproducts(response.data)
             })

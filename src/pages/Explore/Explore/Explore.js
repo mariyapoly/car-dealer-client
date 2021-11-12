@@ -10,7 +10,7 @@ const Explore = () => {
     const [products, setproducts] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/allProducts')
+        axios.get('https://cryptic-dawn-61240.herokuapp.com/allProducts')
             .then(function (response) {
                 setproducts(response.data)
             })

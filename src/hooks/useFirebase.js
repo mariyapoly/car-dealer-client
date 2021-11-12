@@ -66,7 +66,7 @@ const useFirebase = () => {
     // cheack admin
     useEffect(() => {
         // setIsLoading(true)
-        axios.get(`http://localhost:5000/makeAdmin/${user?.email}`)
+        axios.get(`https://cryptic-dawn-61240.herokuapp.com/makeAdmin/${user?.email}`)
             .then(function (response) {
                 if (response?.data?.role === 'admin') {
                     setIsAdmin(true)
@@ -77,7 +77,7 @@ const useFirebase = () => {
                 }
             })
 
-        // fetch(`http://localhost:5000/makeAdmin/${user?.email}`)
+        // fetch(`https://cryptic-dawn-61240.herokuapp.com/makeAdmin/${user?.email}`)
         //     .then(res => res.json())
         //     .then(data => {
         //         if (data?.role === 'admin') {
@@ -97,7 +97,7 @@ const useFirebase = () => {
 
     // saved user 
     const savedUser = (email, name) => {
-        axios.post('http://localhost:5000/user', {
+        axios.post('https://cryptic-dawn-61240.herokuapp.com/user', {
             displayName: name,
             email: email
         })

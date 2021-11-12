@@ -16,7 +16,7 @@ const OrderPurches = () => {
     const { name, des, img, price } = product;
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/product/${id}`)
+        axios.get(`https://cryptic-dawn-61240.herokuapp.com/product/${id}`)
             .then(function (response) {
                 setproduct(response.data)
             })
@@ -25,7 +25,7 @@ const OrderPurches = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
 
-        axios.post('http://localhost:5000/orders', {
+        axios.post('https://cryptic-dawn-61240.herokuapp.com/orders', {
             img: img,
             productName: name,
             price: price,

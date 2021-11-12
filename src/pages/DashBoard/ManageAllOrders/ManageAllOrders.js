@@ -11,14 +11,14 @@ const ManageAllOrders = () => {
     const [isUpdate, setIsUpdate] = useState(false)
 
     useEffect(() => {
-        axios.get('http://localhost:5000/allorders')
+        axios.get('https://cryptic-dawn-61240.herokuapp.com/allorders')
             .then(function (response) {
                 setOrderProdusts(response.data);
             })
     }, [isUpdate])
 
     const cancelProducts = (id) => {
-        axios.delete(`http://localhost:5000/orders/${id}`)
+        axios.delete(`https://cryptic-dawn-61240.herokuapp.com/orders/${id}`)
             .then(function (response) {
                 if (response?.data?.deletedCount) {
                     Swal.fire({
@@ -44,7 +44,7 @@ const ManageAllOrders = () => {
     }
 
     const approvedProducts = (id) => {
-        axios.put(`http://localhost:5000/orders/${id}`)
+        axios.put(`https://cryptic-dawn-61240.herokuapp.com/orders/${id}`)
             .then(function (response) {
                 console.log(response.data)
                 if (response?.data?.matchedCount) {

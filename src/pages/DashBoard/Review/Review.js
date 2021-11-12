@@ -13,7 +13,7 @@ const Review = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
 
-        axios.post('http://localhost:5000/review', {
+        axios.post('https://cryptic-dawn-61240.herokuapp.com/review', {
             des: data.des,
             email: data.email,
             name: data.name,

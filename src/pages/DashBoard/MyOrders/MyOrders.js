@@ -12,14 +12,14 @@ const MyOrders = () => {
     const [orderProducts, setOrderProducts] = useState([])
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/orders?email=${user.email}`)
+        axios.get(`https://cryptic-dawn-61240.herokuapp.com/orders?email=${user.email}`)
             .then(function (response) {
                 setOrderProducts(response.data);
             })
     }, [user.email])
 
     const cancelProducts = (id) => {
-        axios.delete(`http://localhost:5000/orders/${id}`)
+        axios.delete(`https://cryptic-dawn-61240.herokuapp.com/orders/${id}`)
             .then(function (response) {
                 if (response?.data?.deletedCount) {
                     Swal.fire({

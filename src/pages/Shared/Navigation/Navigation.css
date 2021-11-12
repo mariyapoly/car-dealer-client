@@ -23,11 +23,12 @@ a.logo span {
     color: #db2d2e;
 }
 .navbar-nav a, .logout-btn {
-    color: #323232;
     text-decoration: none;
     font-family: 'Roboto';
-    font-size: 15px;
+    font-size: 16px;
     margin-left: 40px;
+    color: #fff;
+    font-weight: 600;
 }
 .navbar-nav .selected{
     color: #db2d2e;
