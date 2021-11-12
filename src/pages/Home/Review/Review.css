@@ -59,3 +59,54 @@ p.cutomer-name:after {
     height: 15px;
     background: #666;
 }
+/* ---------- media query ---------- */
+@media only screen and (max-width:575px) {
+    .qoute {
+        font-size: 27px;
+        margin-right: 10px;
+    }
+    .simgle-review {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .review-message {
+        padding: 19px 7px;
+    }
+    .customer-info img {
+        width: 80px;
+        height: 80px;
+        margin-right: 8px;
+    }
+    p.cutomer-name {
+        font-size: 14px;
+        margin-right: 15px;
+    }
+    .customer-info p {
+        font-size: 13px;
+    }
+}
+@media only screen and (min-width:575px) and (max-width:767px) {
+    .qoute {
+        font-size: 27px;
+        margin-right: 10px;
+    }
+    .simgle-review {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .review-message {
+        padding: 19px 7px;
+    }
+    .customer-info img {
+        width: 80px;
+        height: 80px;
+        margin-right: 8px;
+    }
+    p.cutomer-name {
+        font-size: 14px;
+        margin-right: 15px;
+    }
+    .customer-info p {
+        font-size: 13px;
+    }
+}

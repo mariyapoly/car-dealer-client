@@ -53,6 +53,7 @@ const OrderPurches = () => {
 
         <>
             <Navigation></Navigation>
+            {/* products-details start */}
             <div className="product-details-area">
                 <Container>
                     <Row>
@@ -79,6 +80,7 @@ const OrderPurches = () => {
                     </Row>
                 </Container>
             </div>
+            {/* products-details end */}
         </>
     );
 };

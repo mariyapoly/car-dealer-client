@@ -10,6 +10,7 @@ const Navigation = () => {
     const { user, logOut } = useAuth();
 
     return (
+        // navigation start
         <Navbar expand="lg">
             <Container>
                 <Link to="/" className="logo"><span>Car</span> Dealer</Link>
@@ -21,17 +22,16 @@ const Navigation = () => {
                         {
                             user.email ? <>
                                 <NavLink to="/dashBoard" activeClassName="selected">Dashboard</NavLink>
-                                <button onClick={logOut}>Logout</button>
-                                {user.displayName}
+                                <button className="logout-btn" onClick={logOut}>Logout</button>
+                                <span className="user-name">{user.displayName}</span>
                             </>
                                 : <NavLink to="/login" activeClassName="selected">Login</NavLink>
                         }
-
-                        <NavLink to="/register" activeClassName="selected">Register</NavLink>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
+        // navigation end
     );
 };
 

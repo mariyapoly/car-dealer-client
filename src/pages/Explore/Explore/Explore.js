@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Container, Row, Spinner } from 'react-bootstrap';
 import Navigation from '../../Shared/Navigation/Navigation';
 import Product from '../../Shared/Product/Product';
+import './Explore.css'
 
 const Explore = () => {
 
@@ -19,7 +20,8 @@ const Explore = () => {
     return (
         <>
             <Navigation></Navigation>
-            <div>
+            {/* explore-products start */}
+            <div className="explore-products">
                 <Container>
                     <div className="section-title text-center">
                         <span>Check out our all cars</span>
@@ -37,6 +39,7 @@ const Explore = () => {
 
                 </Container>
             </div>
+            {/* explore-products end */}
         </>
     );
 };

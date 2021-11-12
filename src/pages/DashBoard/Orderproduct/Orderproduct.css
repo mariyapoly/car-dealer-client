@@ -1,4 +1,5 @@
-.order-product ul {
+/* -------- order product css -------- */
+.order-product .order-list-lg {
     display: flex;
     list-style: none;
     align-items: center;
@@ -8,7 +9,7 @@
 .order-product:nth-child(odd){
     background-color: #f9f9f9;
 }
-.order-product ul li {
+.order-product .order-list-lg li {
     color: #363636;
     font-size: 14px;
 }
@@ -46,36 +47,80 @@
     color: #fff;
 
 }
-.order-product ul li:nth-child(1){
+.order-product .order-list-lg li:nth-child(1){
     width: 24%;
     color: #db2d2e;
     font-size: 12px;
     display: flex;
     align-items: center;
 }
-.order-product ul li:nth-child(2){
+.order-product .order-list-lg li:nth-child(2){
     width: 20%;
 }
-.order-product ul li:nth-child(3){
+.order-product .order-list-lg li:nth-child(3){
     width: 24%;
 }
-.order-product ul li:nth-child(4){
+.order-product .order-list-lg li:nth-child(4){
     width: 10%;
 }
-.order-product ul li:nth-child(5){
+.order-product .order-list-lg li:nth-child(5){
     width: 10%;
     text-align: center;
 }
-.order-product ul li:nth-child(6){
+.order-product .order-list-lg li:nth-child(6){
     width: 6%;
 }
-.order-product ul li:nth-child(7){
+.order-product .order-list-lg li:nth-child(7){
     width: 4%;
 }
-.order-product ul li:nth-child(7){
+.order-product .order-list-lg li:nth-child(7){
     width: 4%;
 }
-.order-product ul li img {
+.order-product .order-list-lg li img {
     width: 80px;
     margin-right: 10px;
+}
+
+ul.order-list-sm {
+    list-style: none;
+    padding: 15px 0 0 0;
+    display: none;
+}
+
+ul.order-list-sm li:nth-child(1) {
+    display: flex;
+}
+
+ul.order-list-sm li img {
+    width: 100px;
+    margin-right: 14px;
+}
+
+ul.order-list-sm li span {
+    font-size: 14px;
+}
+
+ul.order-list-sm li {
+    margin-bottom: 10px;
+}
+ul.order-list-sm li span:nth-child(1) {
+    color: #db2d2e;
+    margin-right: 1px;
+}
+/* ---------- media query ---------- */
+@media only screen and (max-width:575px) { 
+    .order-product .order-list-lg{
+        display: none !important;
+    }
+    .order-list-sm {
+        display: block;
+    }
+}
+@media only screen and (min-width:575px) and (max-width:767px) {
+    .order-product .order-list-lg{
+        display: none !important;
+    }
+    .order-list-sm {
+        display: block;
+    }
 }

@@ -4,3 +4,14 @@
 .review-area .section-title h2{
     color: #363636;
 }
+/* ---------- media query ---------- */
+@media only screen and (max-width:575px) {
+    .review-area {
+        padding: 55px 0 30px;
+    }
+}
+@media only screen and (min-width:575px) and (max-width:767px) {
+    .review-area {
+        padding: 55px 0 30px;
+    }
+}

@@ -28,10 +28,11 @@ const MakeAdmin = () => {
     };
 
     return (
+        // make-admin start
         <div className="make-admin">
             <Container>
                 <div className="section-title dashboard">
-                    <h2>Add a Product</h2>
+                    <h2>Make Admin</h2>
                 </div>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <input required placeholder="Email" {...register("eamil")} />
@@ -39,6 +40,7 @@ const MakeAdmin = () => {
                 </form>
             </Container>
         </div>
+        // make-admin end
     );
 };
 

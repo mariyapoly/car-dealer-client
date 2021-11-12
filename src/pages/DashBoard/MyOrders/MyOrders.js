@@ -46,6 +46,7 @@ const MyOrders = () => {
 
 
     return (
+        // orders start
         <div className="orders">
             <Container>
                 <div className="section-title dashboard">
@@ -71,6 +72,7 @@ const MyOrders = () => {
 
             </Container>
         </div>
+        // orders end
     );
 };
 

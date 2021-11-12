@@ -10,6 +10,7 @@ import './HomeService.css'
 
 const HomeService = () => {
     return (
+        // service-area start
         <div className="service-area">
             <Container>
                 <Row className="align-items-center">
@@ -59,6 +60,7 @@ const HomeService = () => {
                 </Row>
             </Container>
         </div>
+        // service-area end
     );
 };
 

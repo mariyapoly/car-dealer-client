@@ -5,10 +5,32 @@
     margin: 0 auto;
     border: 1px solid #666;
     padding: 50px;
+    margin: 140px 0 40px;
 }
 
 .input-field form input {
     width: 100%;
     margin: 10px 0;
     padding: 8px 15px;
+}
+.input-field p {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+.input-field p a {
+    color: #db2d2e;
+    text-decoration: none;
+}
+/* ---------- media query ---------- */
+@media only screen and (max-width:575px) {
+    .input-field {
+        width: auto;
+        padding: 10px;
+    }
+}
+@media only screen and (min-width:575px) and (max-width:767px) {
+    .input-field {
+        width: auto;
+        padding: 10px;
+    }
 }

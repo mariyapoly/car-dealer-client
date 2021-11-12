@@ -9,6 +9,7 @@ import './HomeAbout.css';
 
 const HomeAbout = () => {
     return (
+        // about area start
         <div className="about-area">
             <Container>
                 <Row>
@@ -70,6 +71,7 @@ const HomeAbout = () => {
                 </Row>
             </Container>
         </div>
+        // about area end
     );
 };
 

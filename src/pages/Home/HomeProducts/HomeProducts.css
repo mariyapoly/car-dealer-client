@@ -5,7 +5,6 @@
     position: relative;
     z-index: 1;
     padding: 110px 0 80px;
-    position: relative;
 }
 .products-bg::before{
     position: absolute;
@@ -17,4 +16,15 @@
     background: #0c0c0c;
     opacity: 0.7;
     z-index: -1;
+}
+/* ---------- media query ---------- */
+@media only screen and (max-width:575px) {
+    .products-bg {
+        padding: 60px 0 40px;
+    }
+}
+@media only screen and (min-width:575px) and (max-width:767px) {
+    .products-bg {
+        padding: 60px 0 40px;
+    }
 }

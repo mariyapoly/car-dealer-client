@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Col, Container, Offcanvas, Row } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import {
@@ -15,59 +15,89 @@ import ManageAllOrders from '../ManageAllOrders/ManageAllOrders';
 import AddProducts from '../AddProducts/AddProducts';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import ManageProducts from '../ManageProducts/ManageProducts';
-import axios from 'axios';
+import HomeDashBoard from './HomeDashBoard/HomeDashBoard';
+import AdminRoute from '../../Login/AdminRoute/AdminRoute';
+import Button from '@restart/ui/esm/Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+
 
 const DashBoard = () => {
 
-    const [isAdmin, setIsAdmin] = useState(false)
-    const { user, logOut } = useAuth();
+    const { user, logOut, isAdmin } = useAuth();
     let { path, url } = useRouteMatch();
 
+    const [show, setShow] = useState(false);
 
-    // cheack admin
-    useEffect(() => {
-        axios.get(`http://localhost:5000/makeAdmin/${user?.email}`)
-            .then(function (response) {
-                if (response.data.role === 'admin') {
-                    setIsAdmin(true)
-                }
-            })
-    }, [user.email])
-
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     return (
+        // dashboard-area start
         <div className="dashboard-area">
             <Container fluid className="ps-0">
                 <Row className="p-0">
                     <Col lg={2} className="p-0">
-                        <div className="side-navbar">
+                        <div className="side-navbar desktop">
                             <Link to="/" className="logo"><span>Car</span> Dealer</Link>
+                            <NavLink to={`${url}`}>home dashboard</NavLink>
+
+
                             {
-                                !isAdmin && <>
-                                    <NavLink to={`${url}`} activeClassName="selected">Pay</NavLink>
-                                    <NavLink to={`${url}/myOrders`} activeClassName="selected">My Orders</NavLink>
-                                    <NavLink to={`${url}/review`} activeClassName="selected">Review</NavLink>
-                                </>
-                            }
-                            {
-                                isAdmin && <>
+                                user?.email && isAdmin ? <>
                                     <NavLink to={`${url}/manageAllOrders`} activeClassName="selected">Manage All Orders</NavLink>
                                     <NavLink to={`${url}/addAProducts`} activeClassName="selected">Add A Products</NavLink>
                                     <NavLink to={`${url}/makeAdmin`} activeClassName="selected">Make Admin</NavLink>
                                     <NavLink to={`${url}/manageProducts`} activeClassName="selected">Manage Products</NavLink>
                                 </>
+                                    : <>
+                                        <NavLink to={`${url}/pay`} activeClassName="selected">Pay</NavLink>
+                                        <NavLink to={`${url}/myOrders`} activeClassName="selected">My Orders</NavLink>
+                                        <NavLink to={`${url}/review`} activeClassName="selected">Review</NavLink>
+                                    </>
                             }
 
-                            <button onClick={logOut}>Logout</button>
+                            <button className="regular-btn" onClick={logOut}>Logout</button>
                         </div>
                     </Col>
                     <Col lg={10} className="p-0">
+
+                        <Offcanvas show={show} onHide={handleClose}>
+                            <Offcanvas.Header closeButton>
+                            </Offcanvas.Header>
+                            <div className="side-navbar">
+                                <Link to="/" className="logo"><span>Car</span> Dealer</Link>
+                                <NavLink to={`${url}`}>home dashboard</NavLink>
+
+
+                                {
+                                    user?.email && isAdmin ? <>
+                                        <NavLink to={`${url}/manageAllOrders`} activeClassName="selected">Manage All Orders</NavLink>
+                                        <NavLink to={`${url}/addAProducts`} activeClassName="selected">Add A Products</NavLink>
+                                        <NavLink to={`${url}/makeAdmin`} activeClassName="selected">Make Admin</NavLink>
+                                        <NavLink to={`${url}/manageProducts`} activeClassName="selected">Manage Products</NavLink>
+                                    </>
+                                        : <>
+                                            <NavLink to={`${url}/pay`} activeClassName="selected">Pay</NavLink>
+                                            <NavLink to={`${url}/myOrders`} activeClassName="selected">My Orders</NavLink>
+                                            <NavLink to={`${url}/review`} activeClassName="selected">Review</NavLink>
+                                        </>
+                                }
+
+                                <button className="regular-btn" onClick={logOut}>Logout</button>
+                            </div>
+                        </Offcanvas>
                         <div className="dashbord-header d-flex justify-content-between align-items-center">
+                            <Button className="dashboard-sm" onClick={handleShow}> <FontAwesomeIcon icon={faBars} />
+                            </Button>
                             <p>Dashboard</p>
                             <span>{user.displayName}</span>
                         </div>
                         <Switch>
                             <Route exact path={path}>
+                                <HomeDashBoard></HomeDashBoard>
+                            </Route>
+                            <Route path={`${path}/pay`}>
                                 <Pay></Pay>
                             </Route>
                             <Route path={`${path}/myOrders`}>
@@ -76,23 +106,24 @@ const DashBoard = () => {
                             <Route path={`${path}/review`}>
                                 <Review></Review>
                             </Route>
-                            <Route path={`${path}/manageAllOrders`}>
+                            <AdminRoute path={`${path}/manageAllOrders`}>
                                 <ManageAllOrders></ManageAllOrders>
-                            </Route>
-                            <Route path={`${path}/addAProducts`}>
+                            </AdminRoute>
+                            <AdminRoute path={`${path}/addAProducts`}>
                                 <AddProducts></AddProducts>
-                            </Route>
-                            <Route path={`${path}/makeAdmin`}>
+                            </AdminRoute>
+                            <AdminRoute path={`${path}/makeAdmin`}>
                                 <MakeAdmin></MakeAdmin>
-                            </Route>
-                            <Route path={`${path}/manageProducts`}>
+                            </AdminRoute>
+                            <AdminRoute path={`${path}/manageProducts`}>
                                 <ManageProducts></ManageProducts>
-                            </Route>
+                            </AdminRoute>
                         </Switch>
                     </Col>
                 </Row>
             </Container>
         </div >
+        // dashboard-area start
     );
 };
 

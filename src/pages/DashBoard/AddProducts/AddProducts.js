@@ -30,6 +30,7 @@ const AddProducts = () => {
     };
 
     return (
+        // add-product-area start
         <div className="add-product-area">
             <Container>
                 <div className="section-title dashboard">
@@ -44,6 +45,7 @@ const AddProducts = () => {
                 </form>
             </Container>
         </div>
+        // add-product-area end
     );
 };
 

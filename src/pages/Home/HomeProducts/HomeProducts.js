@@ -17,6 +17,7 @@ const HomeProducts = () => {
 
 
     return (
+        // products-bg start
         <div className="products-bg">
             <Container>
                 <div className="section-title">
@@ -32,9 +33,9 @@ const HomeProducts = () => {
                         }
                     </Row> : <Spinner style={{ position: 'absolute', top: '75%', left: '50%' }} animation="border" variant="danger" />
                 }
-
             </Container>
         </div>
+        // products-bg end
     );
 };
 

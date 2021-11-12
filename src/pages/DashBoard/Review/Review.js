@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React from 'react';
+import { Container } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2';
 import useAuth from '../../../hooks/useAuth';
@@ -35,20 +36,24 @@ const Review = () => {
     };
 
     return (
+        // review form start
         <div className="review-form">
-            <div className="section-title">
-                <h2>customer review</h2>
-            </div>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <input value={user.email} {...register("email")} />
-                <input value={user.displayName} {...register("name")} />
-                <input required placeholder="Role" {...register("role")} />
-                <input required placeholder="Rating" {...register("rating")} />
-                <input required className="img" placeholder="Image" {...register("img")} />
-                <textarea required placeholder="Description" {...register("des")} />
-                <input className="regular-btn" type="submit" value="submit" />
-            </form>
+            <Container>
+                <div className="section-title">
+                    <h2>customer review</h2>
+                </div>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <input value={user.email} {...register("email")} />
+                    <input value={user.displayName} {...register("name")} />
+                    <input required placeholder="Role" {...register("role")} />
+                    <input required placeholder="Rating" {...register("rating")} />
+                    <input required className="img" placeholder="Image" {...register("img")} />
+                    <textarea required placeholder="Description" {...register("des")} />
+                    <input className="regular-btn" type="submit" value="submit" />
+                </form>
+            </Container>
         </div>
+        // review form end
     );
 };
 

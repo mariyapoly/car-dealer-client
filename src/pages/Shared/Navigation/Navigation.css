@@ -1,6 +1,12 @@
 /* --------- header css ----------- */
+
 nav.navbar {
-    background: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    background: no-repeat;
     padding: 20px 0;
 }
 .logo {
@@ -16,7 +22,7 @@ nav.navbar {
 a.logo span {
     color: #db2d2e;
 }
-.navbar-nav a {
+.navbar-nav a, .logout-btn {
     color: #323232;
     text-decoration: none;
     font-family: 'Roboto';
@@ -25,4 +31,58 @@ a.logo span {
 }
 .navbar-nav .selected{
     color: #db2d2e;
+}
+.logout-btn {
+    background: no-repeat;
+    border: 0;
+    margin-right: 10px;
+}
+span.user-name {
+    color: #db2d2e;
+}
+
+/* ---------- media query ---------- */
+@media only screen and (max-width:575px) {
+    .navbar-nav a, .logout-btn {
+        margin: 8px 20px;
+    }
+    .ms-auto.navbar-nav {
+        background: rgba(255,255,255,1);
+        padding: 20px 0;
+    }
+    .navbar-light .navbar-toggler {
+         border-color: none;
+    }
+    .navbar-toggler:focus {
+        box-shadow: none;
+    }
+    button.logout-btn {
+        width: 86px;
+        margin-left: 0;
+    }
+    span.user-name {
+        margin-left: 20px;
+    }
+}
+@media only screen and (min-width:575px) and (max-width:767px) {
+    .navbar-nav a, .logout-btn {
+        margin: 8px 20px;
+    }
+    .ms-auto.navbar-nav {
+        background: rgba(255,255,255,1);
+        padding: 20px 0;
+    }
+    .navbar-light .navbar-toggler {
+         border-color: none;
+    }
+    .navbar-toggler:focus {
+        box-shadow: none;
+    }
+    button.logout-btn {
+        width: 86px;
+        margin-left: 0;
+    }
+    span.user-name {
+        margin-left: 20px;
+    }
 }

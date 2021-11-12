@@ -16,6 +16,7 @@ const CustomerReview = () => {
     }, [])
 
     return (
+        // rebiew area start
         <div className="review-area">
             <Container>
                 <div className="section-title text-center">
@@ -31,6 +32,7 @@ const CustomerReview = () => {
                 </Row>
             </Container>
         </div>
+        // rebiew area end
     );
 };
 

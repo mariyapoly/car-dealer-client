@@ -61,6 +61,7 @@ const ManageAllOrders = () => {
     }
 
     return (
+        // mange-orders start
         <div className="mange-orders">
             <Container>
                 <div className="section-title dashboard">
@@ -84,8 +85,8 @@ const ManageAllOrders = () => {
                     }
                 </Row>
             </Container>
-
         </div>
+        // mange-orders end
     );
 };
 

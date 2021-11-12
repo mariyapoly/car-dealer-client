@@ -1,3 +1,4 @@
+/* -------- make admin css ------- */
 .make-admin {
     padding: 60px 0;
 }
@@ -10,4 +11,15 @@
     width: 100%;
     padding: 8px 15px;
     margin: 10px 0;
+}
+/* -------- media query ------- */
+@media only screen and (max-width:575px) {
+    .make-admin form {
+        width: auto;
+    }
+}
+@media only screen and (min-width:575px) and (max-width:767px) {
+    .make-admin form {
+        width: auto;
+    }
 }

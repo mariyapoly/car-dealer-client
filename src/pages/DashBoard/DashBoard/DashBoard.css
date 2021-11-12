@@ -1,10 +1,10 @@
-
+/* ------ dashboard css */
 .side-navbar {
     height: 100vh;
 }
 .side-navbar {
     padding-left: 30px;
-    padding-top: 30px;
+    padding-top: 16px;
     background-color: #fff;
     box-shadow: 5px 0px 5px 0px rgba(0,0,0,0.15);
     -webkit-box-shadow: 5px 0px 5px 0px rgba(0,0,0,0.15);
@@ -33,7 +33,69 @@
     text-transform: capitalize;
     font-size: 30px;
     font-weight: 600;
+    margin: 0;
 }
 .dashbord-header span {
     color: #fff;
+}
+.side-navbar .selected {
+    color: #db2d2e;
+}
+.dashboard-sm {
+    display: none;
+}
+button.dashboard-sm {
+    background: 0;
+    color: #fff;
+    border: 0;
+    font-size: 30px;
+}
+/* ---------- media query ---------- */
+@media only screen and (max-width:575px) {
+    .dashboard-area .side-navbar.desktop {
+        display: none;
+    }
+    .dashboard-sm {
+        display: block;
+    }
+    .side-navbar .logo {
+        margin-bottom: 0;
+    }
+    .side-navbar {
+        padding-left: 20px;
+        padding-top: 0;
+    }
+    .side-navbar a {
+        margin: 10px 0;
+    }
+    .dashbord-header p {
+        font-size: 22px;
+    }
+    button.dashboard-sm {
+        font-size: 25px;
+    }
+}
+@media only screen and (min-width:575px) and (max-width:767px) {
+    .dashboard-area .side-navbar.desktop {
+        display: none;
+    }
+    .dashboard-sm {
+        display: block;
+    }
+    .side-navbar .logo {
+        margin-bottom: 0;
+    }
+    .side-navbar {
+        padding-left: 20px;
+        padding-top: 0;
+    }
+    .side-navbar a {
+        margin: 10px 0;
+    }
+    .dashbord-header p {
+        font-size: 22px;
+    }
+    button.dashboard-sm {
+        font-size: 25px;
+    }
 }

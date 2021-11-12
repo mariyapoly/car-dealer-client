@@ -1,3 +1,4 @@
+/* --------- product css ---------- */
 .single-products {
     background: #fff;
     margin-bottom: 30px;
@@ -44,4 +45,15 @@ p.price {
 }
 .single-products button.regular-btn.delete-btn {
     display: none;
+}
+/* ---------- media query ---------- */
+@media only screen and (max-width:575px) {
+    .single-products img {
+        height: auto;
+    }
+}
+@media only screen and (min-width:575px) and (max-width:767px) {
+    .single-products img {
+        height: auto;
+    }
 }

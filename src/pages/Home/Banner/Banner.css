@@ -2,9 +2,18 @@
 .banner-part {
     background: url(../../../images/slide-1.jpg) no-repeat center;
     background-size: cover;
-    padding: 200px 0 150px;
+    position: relative;
 }
-
+.overlay {
+    background: rgba(0,0,0,0.3);
+    padding: 60px 0 320px;
+}
+.banner-container {
+    text-align: center;
+    margin-top: 150px;
+    z-index: 999;
+    position: relative;
+}
 .banner-container h4 {
     color: #fff;
     font-size: 30px;
@@ -17,4 +26,77 @@
     text-transform: uppercase;
     font-size: 90px;
     font-weight: 600;
+}
+.car-2 img {
+    height: 350px;
+}
+
+.car-1 img {
+    height: 333px;
+}
+.car-1 {
+    position: absolute;
+    top: 34%;
+    left: -54%;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.car-2 {
+    position: absolute;
+    top: 41%;
+    right: 0;
+    left: 38%;
+    margin: 0 auto;
+    text-align: center;
+}
+/* ---------- media query ---------- */
+@media only screen and (max-width:575px) {
+    .overlay {
+        padding: 110px 0 120px ;
+    }
+    .banner-container {
+        margin-top: 42px;
+    }
+    .banner-container h1 {
+        font-size: 40px;
+    }
+    .banner-container h4 {
+        font-size: 16px;
+    }
+    .car-2 img {
+        display: none;
+    }
+    .car-1 img {
+        height: 150px;
+    }
+    .car-1 {
+        top: 43%;
+        left: -5%;
+    }
+}
+@media only screen and (min-width:575px) and (max-width:767px) {
+    .overlay {
+        padding: 110px 0 120px ;
+    }
+    .banner-container {
+        margin-top: 42px;
+    }
+    .banner-container h1 {
+        font-size: 40px;
+    }
+    .banner-container h4 {
+        font-size: 16px;
+    }
+    .car-2 img {
+        display: none;
+    }
+    .car-1 img {
+        height: 150px;
+    }
+    .car-1 {
+        top: 43%;
+        left: -5%;
+    }
 }

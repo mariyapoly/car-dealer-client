@@ -11,6 +11,7 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(true);
+    const [isAdmin, setIsAdmin] = useState(false)
 
     const auth = getAuth();
 
@@ -62,6 +63,29 @@ const useFirebase = () => {
         return () => unsubscribed;
     }, [auth])
 
+    // cheack admin
+    useEffect(() => {
+        // setIsLoading(true)
+        axios.get(`http://localhost:5000/makeAdmin/${user?.email}`)
+            .then(function (response) {
+                if (response?.data?.role === 'admin') {
+                    setIsAdmin(true)
+                    // setIsLoading(false)
+                }
+                else {
+                    setIsAdmin(false)
+                }
+            })
+
+        // fetch(`http://localhost:5000/makeAdmin/${user?.email}`)
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         if (data?.role === 'admin') {
+        //             setIsAdmin(true)
+        //         }
+        //     })
+    }, [user.email])
+
 
     // logout user
     const logOut = () => {
@@ -91,6 +115,8 @@ const useFirebase = () => {
         user,
         error,
         isLoading,
+        isAdmin,
+        setIsLoading,
         logOut
     }
 

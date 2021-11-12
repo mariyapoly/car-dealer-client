@@ -43,10 +43,11 @@ const ManageProducts = () => {
     }
 
     return (
+        // manage-products start
         <div className="manage-products">
             <Container>
                 <div className="section-title dashboard">
-                    <h2>Add a Product</h2>
+                    <h2>Manage Products</h2>
                 </div>
                 {
                     products.length ? <Row>
@@ -60,6 +61,7 @@ const ManageProducts = () => {
                 }
             </Container>
         </div>
+        // manage-products end
     );
 };
 

@@ -15,3 +15,14 @@
     height: 100px;
     resize: none;
 }
+/* ---------- media query ---------- */
+@media only screen and (max-width:575px) {
+    .add-product-area form {
+        width: auto;
+    }
+}
+@media only screen and (min-width:575px) and (max-width:767px) {
+    .add-product-area form {
+        width: auto;
+    }
+}
