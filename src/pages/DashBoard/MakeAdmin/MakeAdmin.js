@@ -2,7 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
-import Swal from 'sweetalert2';
+import swal from 'sweetalert';
 import './MakeAdmin.css'
 
 const MakeAdmin = () => {
@@ -15,16 +15,15 @@ const MakeAdmin = () => {
         axios.put(`https://cryptic-dawn-61240.herokuapp.com/admin/${data.email}`)
             .then(function (response) {
                 if (response.data.modifiedCount) {
-                    Swal.fire({
-                        position: 'center',
-                        icon: 'success',
-                        title: 'Admin Created Successfully',
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
+                    swal({
+                        text: "admin added successfully",
+                        icon: "success",
+                    });
                     reset();
                 } else {
-                    Swal.fire('Already Admin')
+                    swal({
+                        text: "admin already added",
+                    });
                     reset();
                 }
             })

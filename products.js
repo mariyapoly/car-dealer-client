@@ -1,33 +1,33 @@
 const products = [
 
     {
-        name: 'Joanna Williams',
-        img: 'https://i.ibb.co/b37mrmy/test-2.webp',
-        des: 'cardealer have promised for years that they would soon unleash a flood of battery-electric vehicles. That’s happening now, though it’s still a steady flow more than a gush of new models.',
-        email: 'Joanna@gmail.com',
-        role: 'Customer',
-        rating: '5'
+        img: 'https://i.ibb.co/W3sGyP4/02-4.webp',
+        name: 'MELLISSA DOE',
+        role: 'Customer'
+
     },
     {
-        name: 'Melissa doe',
-        img: 'https://i.ibb.co/cvNyrwB/test-3.webp',
-        des: 'cardealer have promised for years that they would soon unleash a flood of battery-electric vehicles. That’s happening now, though it’s still a steady flow more than a gush of new models.',
-        email: 'Melissa@gmail.com',
-        role: 'Auto Dealer',
-        rating: '5'
+        img: 'https://i.ibb.co/0qNf9PP/01-5.webp',
+        name: 'MICHAEL BEAN',
+        role: 'Auto Dealer'
+    },
+    {
+        img: 'https://i.ibb.co/xHkHGm8/08.webp',
+        name: 'PAUL FLAVIUS',
+        role: 'Car Dealer'
+    },
+    {
+        img: 'https://i.ibb.co/gvbTCxt/06-2.webp',
+        name: 'ALICE WILLIAMS',
+        role: 'Customer'
     }
 ]
 
 
 
 
-// {
-//     name: 'Felicia queen',
-//     img: 'https://i.ibb.co/cvNyrwB/test-3.webp',
-//     des: 'cardealer have promised for years that they would soon unleash a flood of battery-electric vehicles. That’s happening now, though it’s still a steady flow more than a gush of new models',
-//     email: 'Felicia@gmail.com',
-//     role: 'Car Dealer'
-// },
+
+
 
 
 

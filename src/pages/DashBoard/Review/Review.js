@@ -2,7 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
-import Swal from 'sweetalert2';
+import swal from 'sweetalert';
 import useAuth from '../../../hooks/useAuth';
 import './Review.css'
 
@@ -23,13 +23,12 @@ const Review = () => {
         })
             .then(function (response) {
                 if (response.data.insertedId) {
-                    Swal.fire({
-                        position: 'center',
-                        icon: 'success',
+                    swal({
+
                         title: 'Customer Review Successfully',
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
+                        icon: "success",
+                        button: "Aww yiss!",
+                    });
                     reset()
                 }
             })

@@ -7,7 +7,15 @@ import './Navigation.css';
 
 const Navigation = () => {
 
-    const { user, logOut } = useAuth();
+    const { user, logOut, setUser } = useAuth();
+
+    const handlelgOut = () => {
+        logOut()
+            .then(() => {
+                setUser({})
+            }).catch((error) => {
+            });
+    }
 
     return (
         // navigation start
@@ -22,7 +30,7 @@ const Navigation = () => {
                         {
                             user.email ? <>
                                 <NavLink to="/dashBoard" activeClassName="selected">Dashboard</NavLink>
-                                <button className="logout-btn" onClick={logOut}>Logout</button>
+                                <button className="logout-btn" onClick={handlelgOut}>Logout</button>
                                 <span className="user-name">{user.displayName}</span>
                             </>
                                 : <NavLink to="/login" activeClassName="selected">Login</NavLink>

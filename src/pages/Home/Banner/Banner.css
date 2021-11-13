@@ -51,7 +51,7 @@
 }
 /* ---------- media query ---------- */
 @media only screen and (max-width:575px) {
-    .overlay {
+    .banner-part {
         padding: 110px 0 120px ;
     }
     .banner-container {
@@ -75,7 +75,7 @@
     }
 }
 @media only screen and (min-width:575px) and (max-width:767px) {
-    .overlay {
+    .banner-part {
         padding: 110px 0 120px ;
     }
     .banner-container {

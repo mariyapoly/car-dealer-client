@@ -6,7 +6,7 @@ import Navigation from '../Shared/Navigation/Navigation';
 import { useForm } from "react-hook-form";
 import './OrderPurches.css'
 import useAuth from '../../hooks/useAuth';
-import Swal from 'sweetalert2';
+import swal from 'sweetalert';
 
 const OrderPurches = () => {
 
@@ -38,11 +38,11 @@ const OrderPurches = () => {
         })
             .then(function (response) {
                 if (response.data.insertedId) {
-                    Swal.fire({
-                        position: 'center',
-                        icon: 'success',
-                        title: 'Car Order Successfully',
-                    })
+                    swal({
+                        text: "Car Order Successfully",
+                        icon: "success",
+                        button: "ok",
+                    });
                     history.push('/dashBoard/myOrders')
                 }
             })

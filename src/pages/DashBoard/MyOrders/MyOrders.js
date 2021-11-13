@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
 import useAuth from '../../../hooks/useAuth';
 import Orderproduct from '../Orderproduct/Orderproduct';
-import Swal from 'sweetalert2';
 import './MyOrders.css'
+import swal from 'sweetalert';
 
 const MyOrders = () => {
 
@@ -22,24 +22,26 @@ const MyOrders = () => {
         axios.delete(`https://cryptic-dawn-61240.herokuapp.com/orders/${id}`)
             .then(function (response) {
                 if (response?.data?.deletedCount) {
-                    Swal.fire({
-                        title: 'Are you sure?',
-                        text: "Cancel this Product",
-                        icon: 'warning',
-                        showCancelButton: false,
-                        confirmButtonColor: '#3085d6',
-                        confirmButtonText: 'Yes, delete it!'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            Swal.fire(
-                                'Deleted!',
-                                'Your order product has been deleted',
-                                'success'
-                            )
-                            const remainingOrders = orderProducts.filter(products => products._id !== id);
-                            setOrderProducts(remainingOrders);
-                        }
+                    swal({
+                        title: "Are you sure?",
+                        text: "Once deleted, you will not be able to recover this imaginary file!",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
                     })
+                        .then((willDelete) => {
+                            if (willDelete) {
+                                swal("Poof! Your imaginary file has been deleted!", {
+                                    icon: "success",
+                                });
+                                const remainingOrders = orderProducts.filter(products => products._id !== id);
+                                setOrderProducts(remainingOrders);
+                            } else {
+                                swal("Your imaginary file is safe!");
+                            }
+                        });
+
+
                 }
             })
     }

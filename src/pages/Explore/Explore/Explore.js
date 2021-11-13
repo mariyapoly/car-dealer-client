@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Spinner } from 'react-bootstrap';
+import Footer from '../../Shared/Footer/Footer';
 import Navigation from '../../Shared/Navigation/Navigation';
 import Product from '../../Shared/Product/Product';
 import './Explore.css'
@@ -40,6 +41,7 @@ const Explore = () => {
                 </Container>
             </div>
             {/* explore-products end */}
+            <Footer></Footer>
         </>
     );
 };

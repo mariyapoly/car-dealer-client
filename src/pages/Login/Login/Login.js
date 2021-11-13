@@ -8,7 +8,7 @@ import Navigation from '../../Shared/Navigation/Navigation';
 
 const Login = () => {
 
-    const { signInEmailPassword, user, isLoading, error } = useAuth();
+    const { signInEmailPassword, isLoading, error } = useAuth();
     const location = useLocation();
     const history = useHistory();
 

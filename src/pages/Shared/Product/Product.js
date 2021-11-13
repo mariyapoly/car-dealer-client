@@ -12,7 +12,7 @@ const Product = ({ product, handleDeleteBtn }) => {
     }
 
     return (
-        <Col lg={3}>
+        <Col lg={4}>
             <div className="single-products">
                 <img src={img} alt="" />
                 <div className="product-des">

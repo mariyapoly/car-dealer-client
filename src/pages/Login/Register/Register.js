@@ -9,7 +9,7 @@ import './Register.css'
 
 const Register = () => {
 
-    const { rigisterUser, user, isLoading, error } = useAuth();
+    const { rigisterUser, isLoading, error } = useAuth();
     const history = useHistory();
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {

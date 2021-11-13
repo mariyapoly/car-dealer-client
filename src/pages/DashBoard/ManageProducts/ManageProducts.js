@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Spinner } from 'react-bootstrap';
-import Swal from 'sweetalert2';
+import swal from 'sweetalert';
 import Product from '../../Shared/Product/Product';
 import './ManageProducts.css'
 
@@ -20,24 +20,25 @@ const ManageProducts = () => {
         axios.delete(`https://cryptic-dawn-61240.herokuapp.com/allProducts/${id}`)
             .then(function (response) {
                 if (response?.data?.deletedCount) {
-                    Swal.fire({
-                        title: 'Are you sure?',
-                        text: "Delete this Product",
-                        icon: 'warning',
-                        showCancelButton: false,
-                        confirmButtonColor: '#3085d6',
-                        confirmButtonText: 'Yes, delete it!'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            Swal.fire(
-                                'Deleted!',
-                                'Product has been deleted',
-                                'success'
-                            )
-                            const remainingOrders = products.filter(products => products._id !== id);
-                            setproducts(remainingOrders);
-                        }
+                    swal({
+                        title: "Are you sure?",
+                        text: "delete this product",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
                     })
+                        .then((willDelete) => {
+                            if (willDelete) {
+                                swal("products has been deleted!", {
+                                    icon: "success",
+                                });
+                                const remainingOrders = products.filter(products => products._id !== id);
+                                setproducts(remainingOrders);
+                            } else {
+                                swal("Your prodouct is safe!");
+                            }
+                        });
+
                 }
             })
     }

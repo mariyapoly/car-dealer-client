@@ -88,10 +88,7 @@ const useFirebase = () => {
 
     // logout user
     const logOut = () => {
-        signOut(auth).then(() => {
-            setUser({})
-        }).catch((error) => {
-        });
+        return signOut(auth)
     }
 
     // saved user 
@@ -114,6 +111,7 @@ const useFirebase = () => {
         isLoading,
         isAdmin,
         setIsLoading,
+        setUser,
         logOut
     }
 

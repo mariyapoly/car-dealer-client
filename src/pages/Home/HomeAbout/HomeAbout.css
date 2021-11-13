@@ -20,12 +20,17 @@
 .section-title span {
     font-size: 17px;
     font-weight: 400;
+    color: #363636;
 }
 .section-title h2 {
     font-size: 40px;
     margin: 10px 0 50px;
     font-weight: 500;
     text-transform: uppercase;
+    color: #363636;
+}
+.about-area .section-title span , .about-area .section-title h2 {
+    color: #fff;
 }
 p.about-text {
     font-size: 15px;

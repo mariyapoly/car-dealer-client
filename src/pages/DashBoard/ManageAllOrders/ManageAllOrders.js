@@ -1,43 +1,46 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
-import Swal from 'sweetalert2';
+import swal from 'sweetalert';
 import Orderproduct from '../Orderproduct/Orderproduct';
 import './ManageAllOrders.css'
 
 const ManageAllOrders = () => {
 
-    const [orderProdusts, setOrderProdusts] = useState([])
+    const [orderProdusts, setOrderProdusts] = useState([]);
+    const [update, setUpdate] = useState(false)
 
     useEffect(() => {
         axios.get('https://cryptic-dawn-61240.herokuapp.com/allorders')
             .then(function (response) {
                 setOrderProdusts(response.data);
             })
-    }, [orderProdusts])
+    }, [update])
 
     const cancelProducts = (id) => {
         axios.delete(`https://cryptic-dawn-61240.herokuapp.com/orders/${id}`)
             .then(function (response) {
                 if (response?.data?.deletedCount) {
-                    Swal.fire({
-                        title: 'Are you sure?',
-                        text: "Cancel this Product",
-                        icon: 'warning',
-                        showCancelButton: false,
-                        confirmButtonColor: '#3085d6',
-                        confirmButtonText: 'Yes, delete it!'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            Swal.fire(
-                                'Deleted!',
-                                'Your order product has been deleted',
-                                'success'
-                            )
-                            const remainingOrders = orderProdusts.filter(products => products._id !== id);
-                            setOrderProdusts(remainingOrders);
-                        }
+
+                    swal({
+                        title: "Are you sure?",
+                        text: "delete this product",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
                     })
+                        .then((willDelete) => {
+                            if (willDelete) {
+                                swal("product has been deleted", {
+                                    icon: "success",
+                                });
+                                const remainingOrders = orderProdusts.filter(products => products._id !== id);
+                                setOrderProdusts(remainingOrders);
+                            } else {
+                                swal("Your product is safe!");
+                            }
+                        });
+
                 }
             })
     }
@@ -45,17 +48,18 @@ const ManageAllOrders = () => {
     const approvedProducts = (id) => {
         axios.put(`https://cryptic-dawn-61240.herokuapp.com/orders/${id}`)
             .then(function (response) {
-                if (response?.data?.matchedCount) {
-                    Swal.fire({
-                        position: 'center',
-                        icon: 'success',
-                        title: 'Order Shipped successfully',
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
+                console.log(response.data)
+                if (response?.data?.modifiedCount) {
+                    swal({
+                        title: "product shipped successfully",
+                        icon: "success",
+                    });
+                    setUpdate(true)
                 }
             })
     }
+
+
 
     return (
         // mange-orders start

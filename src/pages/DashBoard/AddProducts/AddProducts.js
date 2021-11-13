@@ -2,7 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
-import Swal from 'sweetalert2';
+import swal from 'sweetalert';
 import './AddProducts.css'
 
 const AddProducts = () => {
@@ -17,13 +17,10 @@ const AddProducts = () => {
         })
             .then(function (response) {
                 if (response.data.insertedId) {
-                    Swal.fire({
-                        position: 'center',
-                        icon: 'success',
-                        title: 'Product Added Successfully',
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
+                    swal({
+                        text: "product added successfully",
+                        icon: "success",
+                    });
                     reset()
                 }
             })

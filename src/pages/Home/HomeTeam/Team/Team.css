@@ -1,0 +1,147 @@
+/* ---------- team-part css ---------- */
+.team-part {
+    background: rgba(220,220,220,0.3);
+    padding: 100px 0 110px;
+}
+.team-info {
+    text-align: center;
+    padding: 25px;
+    transition: all linear 0.5s;
+    -webkit-transition: all linear 0.5s;
+    -moz-transition: all linear 0.5s;
+    -ms-transition: all linear 0.5s;
+    -o-transition: all linear 0.5s;
+    position: relative;
+    z-index: 999;
+}
+.single-team:hover .team-info{
+    background: #db2d2e;
+}
+.single-team h6 {
+    color: #363636;
+    font-size: 19px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    transition: all linear 0.5s;
+    -webkit-transition: all linear 0.5s;
+    -moz-transition: all linear 0.5s;
+    -ms-transition: all linear 0.5s;
+    -o-transition: all linear 0.5s;
+}
+.single-team:hover h6 {
+    color: #fff;
+}
+.single-team p {
+    color: #363636;
+    margin: 0;
+    transition: all linear 0.5s;
+    -webkit-transition: all linear 0.5s;
+    -moz-transition: all linear 0.5s;
+    -ms-transition: all linear 0.5s;
+    -o-transition: all linear 0.5s;
+}
+.single-team:hover p {
+    color: #fff;
+}
+.team-thumb {
+    position: relative;
+}
+.social-link {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    bottom: 15px;
+    z-index: 1;
+    transition: all linear 0.5s;
+    -webkit-transition: all linear 0.5s;
+    -moz-transition: all linear 0.5s;
+    -ms-transition: all linear 0.5s;
+    -o-transition: all linear 0.5s;
+}
+
+.social-link .social-icon {
+    color: #db2d2e;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    background: #fff;
+    margin: 0 2px;
+    display: inline-block;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    transition: all linear 0.3s;
+    -webkit-transition: all linear 0.3s;
+    -moz-transition: all linear 0.3s;
+    -ms-transition: all linear 0.3s;
+    -o-transition: all linear 0.3s;
+}
+.social-link .social-icon:hover {
+    background: #db2d2e;
+    color: #fff;
+}
+.icon-1, .icon-2,.icon-3,.icon-4 {    
+    transform: translate(0px, 40px);
+    -webkit-transform: translate(0px, 40px);
+    -moz-transform: translate(0px, 40px);
+    -ms-transform: translate(0px, 40px);
+    -o-transform: translate(0px, 40px);
+    opacity: 0;
+}
+.social-icon.icon-1 {
+    transition: all linear 0.3s;
+    -webkit-transition: all linear 0.3s;
+    -moz-transition: all linear 0.3s;
+    -ms-transition: all linear 0.3s;
+    -o-transition: all linear 0.3s;
+}
+.social-icon.icon-2 {
+    transition: all linear 0.4s;
+    -webkit-transition: all linear 0.4s;
+    -moz-transition: all linear 0.4s;
+    -ms-transition: all linear 0.4s;
+    -o-transition: all linear 0.4s;
+}
+.social-icon.icon-3 {
+    transition: all linear 0.5s;
+    -webkit-transition: all linear 0.5s;
+    -moz-transition: all linear 0.5s;
+    -ms-transition: all linear 0.5s;
+    -o-transition: all linear 0.5s;
+}
+.social-icon.icon-4 {
+    transition: all linear 0.6s;
+    -webkit-transition: all linear 0.6s;
+    -moz-transition: all linear 0.6s;
+    -ms-transition: all linear 0.6s;
+    -o-transition: all linear 0.6s;
+}
+
+.single-team:hover .social-icon.icon-1,.single-team:hover .social-icon.icon-2,.single-team:hover .social-icon.icon-3,.single-team:hover .social-icon.icon-4 {
+    transform: translate(0px, 0px);
+    -webkit-transform: translate(0px, 0px);
+    -moz-transform: translate(0px, 0px);
+    -ms-transform: translate(0px, 0px);
+    -o-transform: translate(0px, 0px);
+    opacity: 1;
+}
+/* ---------- media query ---------- */
+@media only screen and (max-width:575px) {
+    .team-part {
+        padding: 60px 0 40px;
+    }
+    .single-team{
+        margin-bottom: 25px;
+    }
+}
+@media only screen and (min-width:575px) and (max-width:767px) {
+    .team-part {
+        padding: 60px 0 40px;
+    }
+    .single-team{
+        margin-bottom: 25px;
+    }
+}

@@ -5,7 +5,8 @@ import useAuth from '../../../hooks/useAuth';
 import {
     Switch,
     Route,
-    useRouteMatch
+    useRouteMatch,
+    useHistory
 } from "react-router-dom";
 import './DashBoard.css'
 import Pay from '../Pay/Pay';
@@ -24,13 +25,24 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 const DashBoard = () => {
 
-    const { user, logOut, isAdmin } = useAuth();
+    const { user, logOut, isAdmin, setUser } = useAuth();
     let { path, url } = useRouteMatch();
 
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const history = useHistory();
+
+    const handlelgOut = () => {
+        logOut()
+            .then(() => {
+                setUser({})
+                history.push("/dashBoard")
+            }).catch((error) => {
+            });
+    }
+
 
     return (
         // dashboard-area start
@@ -57,7 +69,7 @@ const DashBoard = () => {
                                     </>
                             }
 
-                            <button className="regular-btn" onClick={logOut}>Logout</button>
+                            <button className="regular-btn" onClick={handlelgOut}>Logout</button>
                         </div>
                     </Col>
                     <Col lg={10} className="p-0">
@@ -84,7 +96,7 @@ const DashBoard = () => {
                                         </>
                                 }
 
-                                <button className="regular-btn" onClick={logOut}>Logout</button>
+                                <button className="regular-btn" onClick={handlelgOut}>Logout</button>
                             </div>
                         </Offcanvas>
                         <div className="dashbord-header d-flex justify-content-between align-items-center">
