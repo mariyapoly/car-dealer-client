@@ -23,7 +23,6 @@ const Login = () => {
             <Container>
                 {/* input field start */}
                 <div className="input-field">
-                    <p>{user.displayName}</p>
                     <h4>Sign In</h4>
                     {
                         isLoading ? <Spinner animation="border" variant="danger" /> :

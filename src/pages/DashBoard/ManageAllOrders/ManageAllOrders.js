@@ -8,14 +8,13 @@ import './ManageAllOrders.css'
 const ManageAllOrders = () => {
 
     const [orderProdusts, setOrderProdusts] = useState([])
-    const [isUpdate, setIsUpdate] = useState(false)
 
     useEffect(() => {
         axios.get('https://cryptic-dawn-61240.herokuapp.com/allorders')
             .then(function (response) {
                 setOrderProdusts(response.data);
             })
-    }, [isUpdate])
+    }, [orderProdusts])
 
     const cancelProducts = (id) => {
         axios.delete(`https://cryptic-dawn-61240.herokuapp.com/orders/${id}`)
@@ -54,7 +53,6 @@ const ManageAllOrders = () => {
                         showConfirmButton: false,
                         timer: 1500
                     })
-                    setIsUpdate(true)
                 }
             })
     }

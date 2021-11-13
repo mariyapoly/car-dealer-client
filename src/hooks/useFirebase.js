@@ -69,16 +69,17 @@ const useFirebase = () => {
     // cheack admin
     useEffect(() => {
 
-        setIsLoading(true)
+        // setIsLoading(true)
+
         axios.get(`https://cryptic-dawn-61240.herokuapp.com/makeAdmin/${user?.email}`)
             .then(function (response) {
                 if (response?.data?.role === 'admin') {
                     setIsAdmin(true)
-                    setIsLoading(false)
+                    // setIsLoading(false)
                 }
                 else {
                     setIsAdmin(false)
-                    setIsLoading(false)
+                    // setIsLoading(false)
                 }
             })
 

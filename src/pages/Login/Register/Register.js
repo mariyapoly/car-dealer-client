@@ -25,7 +25,6 @@ const Register = () => {
             <Container>
                 {/* input field start */}
                 <div className="input-field">
-                    <p>{user.displayName}</p>
                     <h4>Sign Up</h4>
                     <p>{error}</p>
                     {

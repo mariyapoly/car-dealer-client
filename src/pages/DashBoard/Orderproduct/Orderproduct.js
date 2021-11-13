@@ -25,9 +25,12 @@ const Orderproduct = ({ order, cancelProducts, approvedProducts }) => {
                 <li>
                     <button className="cancel-btn" onClick={() => cancelProducts(_id)}><FontAwesomeIcon icon={faTimes} /></button>
                 </li>
-                <li>
-                    <button className="update-btn" onClick={() => approvedProducts(_id)}><FontAwesomeIcon icon={faCheck} /></button>
-                </li>
+                {
+                    status === 'shipped' ? '' : <li>
+                        <button className="update-btn" onClick={() => approvedProducts(_id)}><FontAwesomeIcon icon={faCheck} /></button>
+                    </li>
+                }
+
             </ul>
             <ul className="order-list-sm">
                 <li><img src={img} alt="" />
@@ -41,9 +44,11 @@ const Orderproduct = ({ order, cancelProducts, approvedProducts }) => {
                 <li> <span>Delete:</span>
                     <button className="cancel-btn" onClick={() => cancelProducts(_id)}><FontAwesomeIcon icon={faTimes} /></button>
                 </li>
-                <li> <span>Approved:</span>
-                    <button className="update-btn" onClick={() => approvedProducts(_id)}><FontAwesomeIcon icon={faCheck} /></button>
-                </li>
+                {
+                    status === 'shipped' ? '' : <li> <span>Approved:</span>
+                        <button className="update-btn" onClick={() => approvedProducts(_id)}><FontAwesomeIcon icon={faCheck} /></button>
+                    </li>
+                }
             </ul>
         </div>
         // order-product end

@@ -16,9 +16,11 @@ const Product = ({ product, handleDeleteBtn }) => {
             <div className="single-products">
                 <img src={img} alt="" />
                 <div className="product-des">
-                    <h5>{name}</h5>
-                    <p>{des.slice(0, 80)}</p>
-                    <p className="price">${price}</p>
+                    <div className="product-info">
+                        <h5>{name}</h5>
+                        <p>{des.slice(0, 80)}</p>
+                        <p className="price">${price}</p>
+                    </div>
                     <button onClick={handleOderBtn} className="regular-btn order-btn">order now</button>
                     <button onClick={() => handleDeleteBtn(_id)} className="regular-btn delete-btn">Delete Product</button>
                 </div>

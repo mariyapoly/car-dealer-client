@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import Navigation from '../Shared/Navigation/Navigation';
 import { useForm } from "react-hook-form";
 import './OrderPurches.css'
@@ -13,6 +13,7 @@ const OrderPurches = () => {
     const { user } = useAuth();
     const { id } = useParams();
     const [product, setproduct] = useState({});
+    const history = useHistory();
     const { name, des, img, price } = product;
 
     useEffect(() => {
@@ -41,9 +42,8 @@ const OrderPurches = () => {
                         position: 'center',
                         icon: 'success',
                         title: 'Car Order Successfully',
-                        showConfirmButton: false,
-                        timer: 1500
                     })
+                    history.push('/dashBoard/myOrders')
                 }
             })
     };
