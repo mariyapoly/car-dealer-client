@@ -27,7 +27,7 @@ const Review = () => {
 
                         title: 'Customer Review Successfully',
                         icon: "success",
-                        button: "Aww yiss!",
+                        button: "ok",
                     });
                     reset()
                 }

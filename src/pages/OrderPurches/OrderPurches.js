@@ -61,7 +61,7 @@ const OrderPurches = () => {
                             <div className="product-details">
                                 <h5>{name}</h5>
                                 <img src={img} alt="" />
-                                <span>{price}</span>
+                                <span>${price}</span>
                                 <p>{des}</p>
                             </div>
                         </Col>
