@@ -16,34 +16,29 @@ const MyOrders = () => {
             .then(function (response) {
                 setOrderProducts(response.data);
             })
-    }, [user.email])
+    }, [user.email, orderProducts])
 
     const cancelProducts = (id) => {
-        axios.delete(`https://cryptic-dawn-61240.herokuapp.com/orders/${id}`)
-            .then(function (response) {
-                if (response?.data?.deletedCount) {
-                    swal({
-                        title: "Are you sure?",
-                        text: "Once deleted, you will not be able to recover this imaginary file!",
-                        icon: "warning",
-                        buttons: true,
-                        dangerMode: true,
-                    })
-                        .then((willDelete) => {
-                            if (willDelete) {
-                                swal("Poof! Your imaginary file has been deleted!", {
-                                    icon: "success",
-                                });
-                                const remainingOrders = orderProducts.filter(products => products._id !== id);
-                                setOrderProducts(remainingOrders);
-                            } else {
-                                swal("Your imaginary file is safe!");
+        swal({
+            title: "Are you sure?",
+            text: "delete this product",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    axios.delete(`https://cryptic-dawn-61240.herokuapp.com/orders/${id}`)
+                        .then(function (response) {
+                            if (response?.data?.deletedCount) {
+                                swal("Your Order Canceled!", "", "success");
                             }
-                        });
+                        })
 
-
+                } else {
+                    swal("Your product is safe!");
                 }
-            })
+            });
     }
 
 

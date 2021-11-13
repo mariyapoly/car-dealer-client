@@ -8,41 +8,38 @@ import './ManageAllOrders.css'
 const ManageAllOrders = () => {
 
     const [orderProdusts, setOrderProdusts] = useState([]);
-    const [update, setUpdate] = useState(false)
 
     useEffect(() => {
         axios.get('https://cryptic-dawn-61240.herokuapp.com/allorders')
             .then(function (response) {
                 setOrderProdusts(response.data);
             })
-    }, [update])
+    }, [orderProdusts])
 
     const cancelProducts = (id) => {
-        axios.delete(`https://cryptic-dawn-61240.herokuapp.com/orders/${id}`)
-            .then(function (response) {
-                if (response?.data?.deletedCount) {
-
-                    swal({
-                        title: "Are you sure?",
-                        text: "delete this product",
-                        icon: "warning",
-                        buttons: true,
-                        dangerMode: true,
-                    })
-                        .then((willDelete) => {
-                            if (willDelete) {
-                                swal("product has been deleted", {
-                                    icon: "success",
-                                });
-                                const remainingOrders = orderProdusts.filter(products => products._id !== id);
-                                setOrderProdusts(remainingOrders);
-                            } else {
-                                swal("Your product is safe!");
+        swal({
+            title: "Are you sure?",
+            text: "delete this product",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    axios.delete(`https://cryptic-dawn-61240.herokuapp.com/orders/${id}`)
+                        .then(function (response) {
+                            if (response?.data?.deletedCount) {
+                                swal("Your Order Canceled!", "", "success");
                             }
-                        });
+                        })
 
+                } else {
+                    swal("Your product is safe!");
                 }
-            })
+            });
+
+
+
     }
 
     const approvedProducts = (id) => {
@@ -54,12 +51,9 @@ const ManageAllOrders = () => {
                         title: "product shipped successfully",
                         icon: "success",
                     });
-                    setUpdate(true)
                 }
             })
     }
-
-
 
     return (
         // mange-orders start
