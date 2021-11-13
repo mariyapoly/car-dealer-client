@@ -13,6 +13,7 @@ import OrderPurches from './pages/OrderPurches/OrderPurches';
 import AuthProvider from './contexts/AuthProvider/AuthProvider';
 import PrivateRoute from './pages/Login/PrivateRoute/PrivateRoute';
 import DashBoard from './pages/DashBoard/DashBoard/DashBoard';
+import NotFound from './pages/NotFound/NotFound';
 
 
 function App() {
@@ -41,6 +42,9 @@ function App() {
           <PrivateRoute path="/dashBoard">
             <DashBoard></DashBoard>
           </PrivateRoute>
+          <Route path="*">
+            <NotFound></NotFound>
+          </Route>
         </Switch>
       </Router>
     </AuthProvider>

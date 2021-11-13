@@ -14,33 +14,31 @@ const ManageProducts = () => {
             .then(function (response) {
                 setproducts(response.data)
             })
-    }, [])
+    }, [products])
 
     const handleDeleteBtn = (id) => {
-        axios.delete(`https://cryptic-dawn-61240.herokuapp.com/allProducts/${id}`)
-            .then(function (response) {
-                if (response?.data?.deletedCount) {
-                    swal({
-                        title: "Are you sure?",
-                        text: "delete this product",
-                        icon: "warning",
-                        buttons: true,
-                        dangerMode: true,
-                    })
-                        .then((willDelete) => {
-                            if (willDelete) {
-                                swal("products has been deleted!", {
-                                    icon: "success",
-                                });
-                                const remainingOrders = products.filter(products => products._id !== id);
-                                setproducts(remainingOrders);
-                            } else {
-                                swal("Your prodouct is safe!");
-                            }
-                        });
 
+        swal({
+            title: "Are you sure?",
+            text: "delete this product",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    axios.delete(`https://cryptic-dawn-61240.herokuapp.com/allProducts/${id}`)
+                        .then(function (response) {
+                            if (response?.data?.deletedCount) {
+                                swal("Your Order Canceled!", "", "success");
+                            }
+                        })
+
+                } else {
+                    swal("Your product is safe!");
                 }
-            })
+            });
+
     }
 
     return (

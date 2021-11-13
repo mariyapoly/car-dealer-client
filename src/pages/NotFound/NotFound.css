@@ -1,0 +1,16 @@
+.pagenot-found {
+    padding: 150px 0 80px;
+    text-align: center;
+}
+
+.pagenot-found h1 {
+    font-size: 120px;
+    font-weight: 700;
+    color: #363636;
+}
+.pagenot-found h2 {
+    color: #363636;
+}
+.pagenot-found p {
+    color: #363636;
+}
