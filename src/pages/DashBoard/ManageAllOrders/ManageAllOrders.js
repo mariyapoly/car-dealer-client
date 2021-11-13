@@ -46,7 +46,6 @@ const ManageAllOrders = () => {
     const approvedProducts = (id) => {
         axios.put(`https://cryptic-dawn-61240.herokuapp.com/orders/${id}`)
             .then(function (response) {
-                console.log(response.data)
                 if (response?.data?.matchedCount) {
                     Swal.fire({
                         position: 'center',

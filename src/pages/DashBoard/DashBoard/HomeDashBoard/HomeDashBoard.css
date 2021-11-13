@@ -2,3 +2,15 @@
     text-align: center;
     margin-top: 50px;
 }
+
+/* ---------- media query ---------- */
+@media only screen and (max-width:575px) {
+    .dashboad-home {
+        padding:  0 15px;
+    }
+}
+@media only screen and (min-width:575px) and (max-width:767px) {
+    .dashboad-home {
+        padding:  0 15px;
+    }
+}

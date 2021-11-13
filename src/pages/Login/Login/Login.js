@@ -8,7 +8,7 @@ import Navigation from '../../Shared/Navigation/Navigation';
 
 const Login = () => {
 
-    const { signInEmailPassword, user, isLoading } = useAuth();
+    const { signInEmailPassword, user, isLoading, error } = useAuth();
     const location = useLocation();
     const history = useHistory();
 
@@ -28,6 +28,7 @@ const Login = () => {
                     {
                         isLoading ? <Spinner animation="border" variant="danger" /> :
                             <form onSubmit={handleSubmit(onSubmit)}>
+                                <p>{error}</p>
                                 <input placeholder="Your Email" {...register("email", { required: true })} />
                                 {errors.email && <span>This field is required</span>}
                                 <input type="password" placeholder="Password" {...register("password")} />

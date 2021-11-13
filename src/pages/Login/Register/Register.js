@@ -9,11 +9,10 @@ import './Register.css'
 
 const Register = () => {
 
-    const { rigisterUser, user, isLoading } = useAuth();
+    const { rigisterUser, user, isLoading, error } = useAuth();
     const history = useHistory();
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
-        console.log(data)
         rigisterUser(data.email, data.password, data.name, history)
     };
 
@@ -28,6 +27,7 @@ const Register = () => {
                 <div className="input-field">
                     <p>{user.displayName}</p>
                     <h4>Sign Up</h4>
+                    <p>{error}</p>
                     {
                         isLoading ? <Spinner animation="border" variant="danger" />
                             : <form onSubmit={handleSubmit(onSubmit)}>

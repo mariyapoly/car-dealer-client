@@ -112,15 +112,15 @@ ul.order-list-sm li span:nth-child(1) {
     .order-product .order-list-lg{
         display: none !important;
     }
-    .order-list-sm {
-        display: block;
+    .order-product  .order-list-sm {
+        display: block !important;
     }
 }
 @media only screen and (min-width:575px) and (max-width:767px) {
     .order-product .order-list-lg{
         display: none !important;
     }
-    .order-list-sm {
-        display: block;
+    .order-product  .order-list-sm {
+        display: block !important;
     }
 }

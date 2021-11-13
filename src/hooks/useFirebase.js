@@ -30,6 +30,7 @@ const useFirebase = () => {
                 }).catch((error) => {
                 });
                 history.replace('/')
+                setError('')
             })
             .catch((error) => {
                 setError(error.message)
@@ -43,6 +44,7 @@ const useFirebase = () => {
         signInWithEmailAndPassword(auth, email, password)
             .then((result) => {
                 history.replace(destination)
+                setError('')
             })
             .catch((error) => {
                 setError(error.message)
@@ -55,6 +57,7 @@ const useFirebase = () => {
         const unsubscribed = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user)
+                setError('')
             } else {
                 setUser({})
             }
@@ -65,25 +68,20 @@ const useFirebase = () => {
 
     // cheack admin
     useEffect(() => {
-        // setIsLoading(true)
+
+        setIsLoading(true)
         axios.get(`https://cryptic-dawn-61240.herokuapp.com/makeAdmin/${user?.email}`)
             .then(function (response) {
                 if (response?.data?.role === 'admin') {
                     setIsAdmin(true)
-                    // setIsLoading(false)
+                    setIsLoading(false)
                 }
                 else {
                     setIsAdmin(false)
+                    setIsLoading(false)
                 }
             })
 
-        // fetch(`https://cryptic-dawn-61240.herokuapp.com/makeAdmin/${user?.email}`)
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         if (data?.role === 'admin') {
-        //             setIsAdmin(true)
-        //         }
-        //     })
     }, [user.email])
 
 
@@ -102,10 +100,8 @@ const useFirebase = () => {
             email: email
         })
             .then(function (response) {
-                console.log(response);
             })
             .catch(function (error) {
-                console.log(error);
             });
     }
 

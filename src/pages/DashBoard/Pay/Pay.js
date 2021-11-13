@@ -1,5 +1,5 @@
 import React from 'react';
-import './Pay'
+import './Pay';
 
 const Pay = () => {
     return (
