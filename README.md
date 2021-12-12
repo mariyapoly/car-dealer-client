@@ -6,7 +6,7 @@
 
 * Users and Admin can sign up and sign in to this website using an email password.
 
-* Admin can see all orders of the users, update order, add new service, delete service, and make a new admin. Admin email: admin@admin.com and password: 123456.
+* Admin can see all orders of the users, update order, add new service, delete service, and make a new admin. Admin email: poly@gmail.com and password: 123456.
 
 * Car Dealer alltime sales best quality cars, our avaliabe cars is 2013 AUDI A4, 2020 BMW i4,2013 AUDI A4 2.0T QUATTRO PREMIUM PLUS,2014 FORD F-150 LARIAT,2016 BUGATTI VEYRON, and more best brands car.
 
